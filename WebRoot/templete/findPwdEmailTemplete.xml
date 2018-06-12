@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-body>
+    <html>
+        
+        <head>
+        </head>
+        <body>
+            <div id="main" style='font-size:20px;text-align:center'>
+                <div>
+                    验证码 ：{0}
+                    <span>
+                        30分钟之内有效
+                    </span>
+                </div>
+                <div>
+                </div>
+            </div>
+        </body>
+    </html>
+</xml-body>

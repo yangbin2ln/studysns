@@ -1,0 +1,137 @@
+/*头部导航栏*/
+.header {
+	height: 60px;
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	z-index: 100;
+	line-height: 60px;
+	background: #ffffff;
+	border-bottom: 1px solid #cccccc;
+}
+
+.header-c {
+	width: 200px;
+	position: absolute;
+	left: 50%;
+	text-align: center;
+	margin-left: -100px;
+	font-weight: bold;
+	color: #444;
+	font-size: 20px;
+}
+
+.header-l {
+	float: left;
+}
+
+.header-l ul li {
+	float: left;
+}
+
+.header-l .nav {
+	margin: 10px;
+	font-size: 15px;
+	color: #907F7E;
+}
+
+.header-r {
+	float: right;
+}
+
+.header-r ul li {
+	float: left;
+}
+
+/*标签列表*/
+.search-view {
+	text-align: center;
+	padding-top: 100px;
+}
+
+.search-view h1 {
+	margin-bottom: 20px;
+}
+
+.search-view-list {
+	display: table;
+	width: 1160px;
+	margin: 0px auto;
+}
+
+.search-view-list h3 {
+	margin-bottom: 30px;
+}
+
+.search-view-list ul {
+	display: table;
+	margin-bottom: 20px;
+	width: 1160px;
+}
+
+.search-view-list ul li {
+	overflow: hidden;
+	width: 165px;
+	height: 220px;
+	margin: 14px;
+	background: #000;
+	display: inline-block;
+}
+
+.search-view-list-commend {
+	
+}
+
+.search-view-list-table {
+	border-bottom: 1px solid #F2F2F2;
+	margin-bottom: 30px;
+}
+
+.search-view-list-table .more {
+	position: relative;
+	cursor: pointer;
+	color: #888888;
+	padding-bottom: 10px;
+	display: inline-block;
+	text-decoration: underline;
+	font-weight: bold;
+	color: #888888;
+}
+
+.m-box {
+	width: 100%;
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+	height: 100%;
+}
+
+.m-box img {
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+}
+
+.m-box img:hover {
+	opacity: 0.7;
+}
+
+.m-box .table {
+	position: relative;
+	top: -190px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.m-box .number {
+	position: relative;
+	bottom: 90px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.m-box .number span {
+	display: block;
+	margin-bottom: 10px;
+}

@@ -1,0 +1,188 @@
+#edui1_iframe {
+	width: 55% !important;
+	margin: 20px auto !important;
+}
+/*遮罩层*/
+#zzc {
+	text-align: center;
+	display: none;
+	top: 0px;
+	background-color: #3C3838;
+	opacity: 1;
+	z-index: 1111;
+	width: 100%;
+	min-height: 100%;
+	height: auto;
+	position: absolute;
+}
+
+#zzc2 {
+	left: 0px;
+	z-index: 666;
+	position: fixed;
+	opacity: 1;
+	width: 88%;
+	height: 100%;
+	top: 0px;
+	display: none;
+}
+
+}
+.img-main {
+	margin: 50px auto;
+	height: auto;
+}
+
+#img-point-prompt {
+	width: 30px;
+	background: red;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+.close {
+	display: block;
+	height: 30px;
+	width: 30px;
+	overflow: hidden;
+	background-image: url(qqimgs.png);
+	background-position: -141px -33px;
+	cursor: pointer;
+	right: 20px;
+	top: 20px;
+	position: fixed;
+	z-index: 777;
+}
+/*遮罩层中的img*/
+#img-point {
+	background: red;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}
+
+#img-point-p {
+	z-index: 1113;
+	position: absolute;
+	cursor: pointer;
+	padding-left: 100px;
+}
+
+.img-text {
+	top: 8px;
+	position: relative;
+	display: inline-block;
+	min-width: 30px;
+	_width: 30px;
+	padding: 6px 8px 4px;
+	white-space: nowrap;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, .75);
+	color: #FFF;
+	left: -44%;
+}
+
+#img-point-p a {
+	font-size: 12px;
+	line-height: 12px
+}
+
+#img-point-p input {
+	font-size: 12px;
+	line-height: 14px;
+	border: 1px solid #cfcfcf;
+	background: #fff;
+}
+
+.img-text s {
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -6px;
+	top: -12px;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	border-width: 6px;
+	border-style: dashed dashed solid;
+	border-bottom-color: #000\9;
+	filter: Alpha(opacity = 75);
+	border-color: transparent transparent rgba(0, 0, 0, .75);
+}
+
+.img-input {
+	position: relative;
+	display: inline-block;
+	min-width: 30px;
+	_width: 30px;
+	padding: 6px 8px 4px;
+	white-space: nowrap;
+	border-radius: 5px;
+	left: -30%;
+	display: inline-block;
+}
+
+.active {
+	
+}
+/*图片收缩按钮 start*/
+.zoom-slider {
+	position: fixed;
+	width: 25px;
+	height: 100px;
+	left: 10%;
+	top: 10%;
+}
+
+.enlarge span,.reduce span {
+	display: block;
+	height: 23px;
+	width: 23px;
+	background: grey;
+	color: white;
+	cursor: pointer;
+}
+
+/*end 图片收缩按钮 */
+
+/*zzc图片*/
+.active-img {
+	margin: 15px 0px 30px 0px;
+}
+/*图片打点效果*/
+.photoPoint {
+	width: 20px;
+	height: 20px;
+	background: red;
+	position: absolute;
+	z-index: 1112;
+	border-radius: 50%;
+}
+/*图片打点查看选项效果*/
+.photoPointView,.photoPointDelete {
+	display: none;
+    text-align: center;
+    height: 22px;
+    width: 39px;
+    display: block;
+    position: relative;
+    font-size: 6px;
+    background-color: #736161;
+    color: white;
+    border-radius: 50%;
+    line-height: 22px;
+    cursor: pointer;
+}
+/*查看和删除父div样式*/
+.photoPoint-c {
+    top: -50%;
+    left: 100%;
+    width: 50px;
+    position: relative;
+    height: 50px;
+}

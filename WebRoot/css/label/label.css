@@ -1,0 +1,373 @@
+body {
+	background: #f0f0f0;
+}
+/*标签打开*/
+.header-c .qhschool {
+    display: inline-block;
+    height: 15px;
+    width: 18px;
+    font-size: 20px;
+    position: relative;
+    line-height: 24px;
+    color: #9C6060;
+    cursor: pointer;
+    margin: 0px 7px;
+}
+
+.la-point-close {
+	border-left: 1px solid #D8AAAA;
+	cursor: pointer;
+	padding-left: 5px;
+}
+
+.header-c-po-s {
+	padding: 0px 5px;
+	border-radius: 5px;
+	display: inline-block;
+	background-color: green;
+	color: white;
+	height: 25px;
+	line-height: 25px;
+}
+
+.header-c-po-l {
+	padding-right: 3px;
+}
+
+.zl {
+	
+}
+
+.table-h-box {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.14);
+	text-align: center;
+}
+
+.points-next,.points-prev,.students-prev,.students-next {
+	cursor: pointer;
+	position: absolute;
+	height: 80px;
+	width: 42px;
+	color: white;
+	line-height: 80px;
+	text-align: center;
+	font-weight: bold;
+}
+.
+.points-next:hover,.points-prev:hover,.students-next:hover,.students-prev:hover
+	{
+	background-color: #000;
+	opacity:0.8;
+}
+
+.points-prev {
+	left: 5px;
+	top: 60px;
+	font-size:20px;
+}
+
+.points-next {
+	top: 60px;
+	right: 5px;
+	font-size:20px;
+}
+
+.students-prev {
+	line-height: 450px;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	font-size: 51px;
+    font-weight: bold;
+}
+
+.students-next {
+	line-height: 450px;
+	height: 100%;
+	top: 0px;
+	right: 0px;
+	font-size: 51px;
+    font-weight: bold;
+}
+
+.zl .table-h {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	position: relative;
+}
+
+.zl .table-h-tn-1 {
+	position: absolute;
+	width: 300px;
+	left: 50%;
+	top: 60%;
+	margin: -150px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.zl .table-h-tn-1 h2 {
+	margin-bottom: 20px;
+}
+
+.table-h-tn-a {
+	font-weight: bold;
+}
+
+.zl .table-h-tn-2 {
+	position: absolute;
+	left: 50%;
+	top: 75%;
+	margin: -50px;
+	text-align: center;
+	width: 100px;
+}
+
+.zl .table-h-tn-2 img {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+.zl .table-h-tn-2 p {
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.zl .table-h-f {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 60px;
+	background: #ffffff;
+	line-height: 60px;
+	text-align: center;
+}
+/*内容导航*/
+.zl-table {
+	padding-top: 60px;
+	background: #000000;
+	display: table;
+	width: 100%;
+	position: relative;
+}
+
+.zl-table-k {
+	overflow: hidden;
+	width: 1280px;
+	height: 80px;
+	margin: 0px auto;
+}
+
+.zl-table-k ul li {
+	width:128px;
+	float: left;
+	cursor: pointer;
+}
+
+.zl-table-k ul {
+	margin: 0px auto;
+	position: relative;
+	left: 0px;
+	width: 0px;
+	overflow: hidden;
+	float: left;
+}
+
+.zl-table-k ul li a {
+	position: relative;
+	height: 55px;
+	display: inline-block;
+	margin: 12.5px 8.5px;
+	background: #ffffff;
+	border-radius: 6px;
+	opacity: 0.8;
+}
+
+.zl-table-k ul li a:hover {
+	opacity: 1;
+}
+
+.zl-table-k ul li a img {
+	-webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+	border-radius: 6px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+	height: 55px;
+	min-width: 111px;
+	opacity: 0.8;
+}
+
+.zl-table-k ul li a span {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 55px;
+	text-align: center;
+	line-height: 55px;
+	color: #ffffff;
+	font-weight: bold;
+}
+/*标签·打开·热门人物*/
+.zl-r {
+	position: relative;
+	width: 100%;
+	display: table;
+	background-image:
+		url('/imgStorage/upload/image/20151121/1448111961505080304.jpg');
+	background-size: cover;
+}
+
+.master {
+	width: 1280px;
+	margin: 0px auto;
+	display: table;
+	padding: 10px 0px 20px;
+}
+
+.master-pul {
+	overflow: hidden;
+	width: 1280px;
+}
+
+.master-pul>ul {
+	width: 0px;
+	margin: 0px auto;
+	left: 0px;
+	position: relative;
+}
+
+.master h3 {
+	color: #fff;
+	text-align: center;
+	margin: 10px;
+}
+
+/*标签作品，选择*/
+.zl-n {
+	width: 1260px;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	margin: 0 auto;
+}
+
+.zl-n-s {
+	display: inline-block;
+}
+
+.zl-n-t {
+	display: inline-block;
+	padding-left: 20px;
+}
+/*标签作品*/
+.zlc {
+	margin: 10px auto;
+}
+
+.zlc-nav {
+	margin: 0px auto;
+	width: 1280px;
+	padding-top: 20px;
+}
+
+.zlc-nav-black {
+	color: black !important;
+}
+
+.zlc-nav span {
+	font-size: 15px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-right: 10px;
+	color: #888888;
+}
+
+.user-p {
+	width: 30px;
+	height: 30px;
+	border-radius: 3px;
+}
+
+/*start 瀑布流box*/
+.zlc-ul>ul {
+	width: 236px;
+	float: left;
+	margin: 20px 10px;
+}
+
+/*end   瀑布流box*/
+/*start 学校列表*/
+#school-ql-m {
+	border: 2px solid #E02828;
+	position: absolute;
+	width: 295px;
+	right: -35px;
+	top: 25px;
+	background-color: white;
+	overflow: hidden;
+	display: none;
+	border-radius: 3px;
+}
+
+.school-ql-m-s-p {
+	position: relative;
+}
+
+.school-ql-m-all {
+	background: #f0f0f0;
+}
+
+.school-ql-m-badge img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	float: right;
+	margin-top: 5px;
+}
+
+#school-ql-m ul li {
+	font-weight: 500;
+	padding: 3px 10px;
+	line-height: 40px;
+	height: 40px;
+	font-size: 13px;
+	cursor: pointer;
+	position: relative;
+	text-align: left;
+}
+
+#school-ql-m ul li:hover {
+	background-color: #1185D6;
+	color: #fff;
+}
+
+#school-ql-m input {
+	font-size: 15px;
+	height: 30px;
+	width: 270px;
+	font-weight: 500;
+	border-radius: 3px;
+	outline: none;
+	padding: 0px 3px;
+}
+
+#school-ql-m button {
+	height: 25px;
+	position: absolute;
+	right: 12px;
+	top: 17px;
+}
+
+/*end   学校列表*/

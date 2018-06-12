@@ -1,0 +1,669 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>完整demo</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<script src='/tShow/js/jquery-1.9.1.js'></script>
+        <script type="text/javascript" charset="utf-8" src="ueditor.config.js">
+        </script>
+        <script type="text/javascript" charset="utf-8" src="ueditor.all.js">
+        </script>
+        <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败--><!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+        <script type="text/javascript" charset="utf-8" src="lang/zh-cn/zh-cn.js">
+        </script>
+		<script src="jquery-1.11.1.js"></script>
+		<script src="GUID.js"></script>
+		<link rel="stylesheet" type="text/css" href="1.css">
+        <style type="text/css">
+           #editor, #editor2 {
+                width: 55% !important;
+                margin: 20px auto !important;
+            } #edui1 {
+                width: 100% !important;
+            }
+            @media screen and (max-width: 700px) { #editor {
+                    width: 100% !important;
+                    margin: 10px auto !important;
+            }
+            } #ueditor_0 img {
+                max-width: 54% !important;
+            }
+			
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>完整demo</h1>
+            <script id="editor2" type="text/plain" style="width:1024px;height:500px;">
+            </script>
+        </div>
+       <div id="img-point-prompt">
+	提示符
+</div>
+
+
+	 <div id="img-point-p">
+			<div id="img-point">
+       		 </div>
+		<div class="img-text">
+			<span class="img-text-span">立意</span>
+			<span class="img-text-span">背景</span>
+			<span class="img-text-span">天气</span>
+			<span class="img-text-span">自定义</span>
+			<s></s>
+		</div>	
+		<div class="img-input" style="display:none">
+			<span  style="display: block;">
+				<input class="photoPointName">
+			</span>
+			<span  style="display: inline-block;">
+				<input class="photoNotationContent">
+			</span>
+			<button class="submit">确认</button>
+			<button class="quit">取消</button>
+		</div>
+		</div>
+
+<div id="zzc">
+	<div class="img-main">
+		<img class="active-img">
+	</div>
+	<!--图片收缩大小框-->
+	<div class="zoom-slider">
+	<div class="enlarge"><span>+</span></div>
+	<div class="reduce"><span>-</span></div>
+	</div>
+	<div  class="close">
+	<span>X</span>
+	</div>
+
+</div>
+
+ <div>
+        <button onclick="getAllHtml()">获得整个html的内容</button>
+        <button onclick="getContent()">获得内容</button>
+        <button onclick="setContent()">写入内容</button>
+        <button onclick="setContent(true)">追加内容</button>
+        <button onclick="getContentTxt()">获得纯文本</button>
+        <button onclick="getPlainTxt()">获得带格式的纯文本</button>
+        <button onclick="hasContent()">判断是否有内容</button>
+        <button onclick="setFocus()">使编辑器获得焦点</button>
+        <button onmousedown="isFocus(event)">编辑器是否获得焦点</button>
+        <button onmousedown="setblur(event)" >编辑器失去焦点</button>
+
+    </div>
+    <div>
+        <button onclick="getText()">获得当前选中的文本</button>
+        <button onclick="insertHtml()">插入给定的内容</button>
+        <button id="enable" onclick="setEnabled()">可以编辑</button>
+        <button onclick="setDisabled()">不可编辑</button>
+        <button onclick=" UE.getEditor('editor').setHide()">隐藏编辑器</button>
+        <button onclick=" UE.getEditor('editor').setShow()">显示编辑器</button>
+    </div>
+        <script type="text/javascript">
+        	
+			/*----------------------- start*/
+			window.onload=function(){
+				 //实例化编辑器
+            //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+            window.UEDITOR_CONFIG.toolbars = [["preview", "simpleupload", "insertimage", "imageleft", "imageright", "imagecenter"]]
+            var ue2 =UE.getEditor('editor2');
+	 ueIframe1=$(document.getElementById('ueditor_0').contentWindow.document);
+	iframeinit();
+	imgPointSubmit();
+	quit();
+	tshowTz();
+	enlargeImg();
+	reduceImg();
+	}
+	//保存zzc图片最大（原始）高度宽度
+	var maxImgW;
+	var maxImgH;
+	//建立前台缓存
+	var photoPoints=new Map();
+	//建立GUID对象
+	var guid=new GUID();
+	
+	/*start iframeinit*/
+	function iframeinit(){
+//	var ueIframe1=$(document);
+			ueIframe1.delegate("img","mouseover",function(){
+				console.log(this);
+				ueIframe1.find("img").removeClass("active");
+				$(this).addClass("active");
+				var editor1Of=$("#ueditor_0").offset();
+				var thisOf=$(this).offset();
+				var _left=parseInt(editor1Of.left+thisOf.left+$(this).width()/2);
+				var _top =parseInt(editor1Of.top+thisOf.top+$(this).height()/2);
+				$("#img-point-prompt").show();
+				$("#img-point-prompt").offset({left:_left,top:_top});
+				
+				$("#editor2").delegate(".edui-editor-imagescale","mouseover",function(){
+				console.log(this);
+				var thisOf=$(this).offset();
+				var _left=parseInt(thisOf.left+$(this).width()/2);
+				var _top =parseInt(thisOf.top+$(this).height()/2);
+				$("#img-point-prompt").show();
+				$("#img-point-prompt").offset({left:_left,top:_top})
+				
+			});
+			
+			$("#editor2").delegate(".edui-editor-imagescale","mouseout",function(){
+				console.log(this);
+				$("#img-point-prompt").hide();
+				
+			})
+				
+			})
+				/*绑定弹出遮罩层事件 start*/
+				$("#img-point-prompt").on("click",function(){
+					$("#zzc").show();	
+					//$("#zzc2").show();
+					//将当前的活动图片加载到active-img中
+					var img =new Image();
+					img.src =ueIframe1.find(".active").attr("src");
+					img.onload =function() { $(".active-img").attr("src",img.src) 
+					$(".active-img").attr("src",ueIframe1.find(".active").attr("src"));
+						//定位遮罩层关闭按钮，图片收缩按钮，以及zzc2的位置或者大小
+					var activeImgOffset = $(".active-img").offset();
+					var activeImgW = $(".active-img").width();
+					var activeImgH = $(".active-img").height();
+					maxImgW=activeImgW;
+					maxImgH=activeImgH;
+					//定位zzc关闭按钮
+					//$("#zzc .close").offset({left:activeImgOffset.left+activeImgW+50,top:5});
+					var closeLeft=activeImgOffset.left+activeImgW+20;
+					$("#zzc .close").css("left",closeLeft>$("body").width()?($("body").width()-$(".close").width()-5+"px"):closeLeft+"px");
+					$("#zzc .close").css("top","10px");
+					//定位收缩按钮的位置
+					var zsLeft=activeImgOffset.left-$(".zoom-slider").width()-10;
+					//$(".zoom-slider").offset({left:zsLeft<=0?0:zsLeft,top:10});
+					$(".zoom-slider").css("left",zsLeft<0?0:zsLeft+"px");
+					$(".zoom-slider").css("top","10px");
+					//计算zzc2的大小和位置
+					//$("#zzc2").offset($(".active-img").offset());
+					//$("#zzc2").width($(".active-img").width());
+					//$("#zzc2").height($(".active-img").height());
+					//改变遮罩层1的高度，和文档高度持平
+					$("#zzc").height(Math.max($(".active-img").height(),$(document).height()));
+					//为可拖拽点定位
+					var thisOf=$(".active-img").offset();
+					var _left=parseInt(thisOf.left+$(".active-img").width()/2);
+					var _top =parseInt(thisOf.top+$(".active-img").height()/2);
+					$("#img-point-p").show();
+					$("#img-point-p").offset({left:_left,top:_top})
+					$("body").scrollTop(0)
+					}
+					}).on("mouseover",function(){$("#img-point-prompt").show();
+				});
+				/*end  绑定弹出遮罩层事件*/
+
+					//为取消遮罩层事件
+					$(".close").on("click",function(){
+						$("#zzc").hide();$("#img-point-p").hide();
+						//$("#zzc2").hide();
+						$(".active-img").width("auto")//重新设置为auto，防止图片的原始宽度无法展示
+						})
+					ueIframe1.delegate("img","mouseout",function(){
+					$("#img-point-prompt").hide();
+					$(".img-point").hide();				
+			})
+		/*end iframeinit*/	
+			
+
+			//圆点鼠标mouseover事件
+			$("#img-point-p").on("mouseover",function(){
+			$("#img-point-p").show();
+				if($(".img-input").is(":hidden")){//文本输入框隐藏则显示打点元素
+					
+					$(".img-text").show();
+				}else{
+				
+				}
+				
+			}).on("mouseout",function(){$(".img-text").hide();})		
+	}
+	
+	
+			//绑定打点事件
+			$(".img-text-span").on("click",function(){
+				$(".img-input").show();
+			})
+
+			//打点描述提交事件
+			function imgPointSubmit(){
+				$(".img-input .submit").on("click",function(){
+					alert("submit");
+					//计算当前图片点的相对位置
+					var imgPoint = $("#img-point").offset();
+					var activeImg = $(".active-img").offset();
+					var activeImgW = $(".active-img").width();
+					var activeImgH = $(".active-img").height();
+					var leftbl=(imgPoint.left-activeImg.left)/activeImgW;
+					var topbl = (imgPoint.top-activeImg.top)/activeImgH;
+					var src=$(".active-img").attr("src");
+					//将此图片的这个打点信息保存在前台缓存中
+						var m=new Map();
+						var u=guid.newGUID();
+						var photoNotationContent=$(".photoNotationContent").val();
+						var photoPointName=$(".photoPointName").val();
+						var obj={
+							//start:leftbl.toFixed(3),
+							start:leftbl,
+							end:topbl,
+							src:src,
+							pointName:photoPointName,
+							notationContent:photoNotationContent
+						}
+						m.set(u,obj);
+					if(!photoPoints.get(src)){
+						photoPoints.set(src,m);
+					}else{
+						photoPoints.get(src).set(u,obj);
+					}
+					//在图片相应位置生成点信息
+					createPhotoPoint(m, $(".active-img"));
+				})
+			}
+			//取消
+			function quit(){
+				$(".img-input .quit").on("click",function(){
+					alert("quit");
+					$(".img-input").hide();
+					$(".img-text").show();
+				})
+			}
+			
+			/*生成图片点效果 start 
+			 * active-img 指当前图片
+			 */
+			function createPhotoPoint(obj,_jq){
+				var photoPoint=new PhotoPoint(obj,_jq);
+				
+			}
+			
+			/*end   生成图片点效果*/
+			function PhotoPoint(obj,_jq){
+				this.obj=obj;
+				this._jq=_jq;
+				this.photoPoint$=$("<div class='photoPoint'><div class='photoPoint-c'><span class='photoPointView'>查看</span><span class='photoPointDelete'>删除</span></div></div>");
+				$("body").append(this.photoPoint$);
+				(function(obj,photoPoint$){
+					photoPoint$.click(function(){
+					}).mouseover(function(){$(this).find(".photoPointView,.photoPointDelete").show()}).mouseout(function(){$(this).find(".photoPointView,.photoPointDelete").hide();});
+					//绑定查看删除事件
+					photoPoint$.find(".photoPointView").on("click",function(){console.log(obj)});
+					photoPoint$.find(".photoPointDelete").on("click",function(){
+						console.log(obj.keys().next().value);
+						//删除相应的前台缓存数据
+						var key=obj.keys().next().value;
+						var src=getValue(obj).src;
+						photoPoints.get(src).delete(key);
+						//删除dom
+						$(this).parent().parent().remove();
+						
+						});
+				})(this.obj,this.photoPoint$);
+				this.photoPoint$.css({
+					"left": getValue(obj).start * _jq.width() + _jq.offset().left,
+					"top": getValue(obj).end * _jq.height() + _jq.offset().top
+				});
+			}
+			
+			function getValue(m){
+				var key=m.keys();
+				var k = key.next().value;
+				return m.get(k);
+			}
+			
+			/* 放大图片按钮 start*/
+			function enlargeImg(){
+				$(".enlarge").on("click",function(){
+				if($(".active-img").width()<maxImgW){
+				//计算当前图片点的相对位置
+					var imgPoint = $("#img-point").offset();
+					var activeImg = $(".active-img").offset();
+					var activeImgW = $(".active-img").width();
+					var activeImgH = $(".active-img").height();
+					var leftbl=(imgPoint.left-activeImg.left)/activeImgW;
+					var topbl = (imgPoint.top-activeImg.top)/activeImgH;
+				//放大
+					 $(".active-img").width($(".active-img").width()*1.1);
+					 $("#img-point-p").offset({
+					 left : $(".active-img").offset().left+$(".active-img").width()*leftbl- parseInt($("#img-point-p").css("padding-left")),
+					 top : $(".active-img").offset().top+$(".active-img").height()*topbl
+					 })
+
+					}
+				})
+				
+			}
+			/* end  放大图片按钮*/
+
+
+			/* 缩小图片按钮 start*/
+			function reduceImg(){
+				$(".reduce").on("click",function(){				
+					//计算当前图片点的相对位置
+					var imgPoint = $("#img-point").offset();
+					var activeImg = $(".active-img").offset();
+					var activeImgW = $(".active-img").width();
+					var activeImgH = $(".active-img").height();
+					var leftbl=(imgPoint.left-activeImg.left)/activeImgW;
+					var topbl = (imgPoint.top-activeImg.top)/activeImgH;
+					//缩小
+					$(".active-img").width($(".active-img").width()/1.1);
+					 $("#img-point-p").offset({
+					 left : $(".active-img").offset().left+$(".active-img").width()*leftbl- parseInt($("#img-point-p").css("padding-left")),
+					 top : $(".active-img").offset().top+$(".active-img").height()*topbl
+					 })
+					
+				})
+				
+			}
+			/* end  缩小图片按钮*/
+
+
+			// 拖拽
+				function tshowTz(){
+				$("#img-point").on("touchstart mousedown",function(i){
+					
+					var dialogbox = $("#img-point-p");
+
+					// 鼠标点击的x和y坐标位置
+					var a = i.clientX;
+					var b = i.clientY;
+					//当前img的相对文档的距离
+					var left = dialogbox.offset().left;
+					var top = dialogbox.offset().top;
+					console.log(left);
+					console.log(top);
+					// 设置边界(最大限制，边距)
+					var pl=parseInt($("#img-point-p").css("padding-left"))
+					var maxLeft = $(".active-img").offset().left+$(".active-img").width()-$("#img-point").width()-pl;
+					var maxTop =  $(".active-img").offset().top+$(".active-img").height()-$("#img-point").height();
+					//设置最小边界
+					var minLeft = $(".active-img").offset().left-pl;
+					var minTop =  $(".active-img").offset().top;
+					// 默认状态打开
+					var flag = true; 
+					// 开始拖拽
+					$(document).on("mousemove touchmove",function(e){
+						if(flag){
+							var x = e.clientX;
+							var y = e.clientY;
+							// 计算拖拽完成后的坐标位置 
+							var _left = x - a + left;
+							var _top = y - b + top;
+							console.log(_left);
+							console.log(_top);
+							if(_left <= minLeft){_left = minLeft;}
+							if(_top <= minTop){_top = minTop;}
+
+							// 限制溢出的边界
+							if(_left >= maxLeft){_left = maxLeft;}
+							if(_top >= maxTop){_top = maxTop;}
+
+						//	$(".tz_dialog").css({left:_left,top:_top});
+						$("#img-point-p").css({left:_left,top:_top});
+						}
+					}).on("mouseup touchend",function(){ // 松开鼠标
+						flag = false; // 关闭
+					});
+					});
+				}
+			/*保存图片作品 start*/
+
+			function savePhoto(){
+				var notationReplys=[];
+				var obj={
+					labelId:'0101',
+					productName:'图片作品测试1',
+					type:'T',
+					original:'Y'
+				};
+				var keys=photoPoints.keys();
+				if(keys){
+				while(true){
+				var key=keys.next().value;
+					if(key){
+						//alert(key)
+						var m=photoPoints.get(key);
+						var keys2=m.keys();
+						if (keys2) {
+							while (true) {
+								var key2 = keys2.next().value;
+								if (key2) {
+									//alert(key2)
+									console.log(m.get(key2))
+									notationReplys.push(m.get(key2))
+								}
+								else {
+									break;
+								}
+							}
+						}
+					}else{
+						break;
+					}
+				}
+				}
+				obj.notationReplys
+				console.log(obj);
+				var obj2=xiugaiArray(notationReplys)
+				$.extend(obj,obj2)
+				console.log(obj)
+				$.post("/tShow/productController.do?saveProduct=true",
+					obj,function(res){alert(res)})
+				
+			}
+
+			/*end   保存图片作品*/
+			/*修改数据发送格式 start*/
+			function xiugaiArray(arr){
+				var obj={};
+				for(var i=0;i<arr.length;i++){
+					var start = arr[i].start;
+					var end = arr[i].end;
+					var pointName = arr[i].pointName;
+					var notationContent = arr[i].notationContent;
+					var src = arr[i].src;
+					obj["notationReplys["+i+"].start"]=start;
+					obj["notationReplys["+i+"].end"]=end;
+					obj["notationReplys["+i+"].pointName"]=pointName;
+					obj["notationReplys["+i+"].notationContent"]=notationContent;
+					obj["notationReplys["+i+"].src"]=src;
+				}
+				return obj;
+			}
+			/*end  修改数据发送格式*/
+			
+			/* -------------------- end*/
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			//初始化图片上传编辑器，为图片绑定点击事件，弹出打点标签
+			/*function iframeinit(){
+			var ueIframe1=$(document.getElementById('ueditor_1').contentWindow.document)
+			ueIframe1.delegate("img","mouseover",function(){
+				console.log(this);
+				var editor1Of=$("#ueditor_1").offset();
+				var thisOf=$(this).offset();
+				var _left=parseInt(editor1Of.left+thisOf.left+$(this).width()/2);
+				var _top =parseInt(editor1Of.top+thisOf.top+$(this).height()/2);
+				$("#img-point-p").show();
+				$("#img-point-p").offset({left:_left,top:_top})
+				
+			})
+			
+				ueIframe1.delegate("img","mouseout",function(){
+				$("#img-point-p").hide();
+				
+			})
+			
+			$("#edui1").delegate("#edui1_imagescale","mouseover",function(){
+				console.log(this);
+				var thisOf=$(this).offset();
+				var _left=parseInt(thisOf.left+$(this).width()/2);
+				var _top =parseInt(thisOf.top+$(this).height()/2);
+				$("#img-point-p").show();
+				$("#img-point-p").offset({left:_left,top:_top})
+				
+			})
+			//圆点鼠标mouseover事件
+			$("#img-point-p").on("mouseover",function(){
+				$("#img-point-p").show();
+				$(".img-text").show();
+			}).on("mouseout",function(){$(".img-text").hide();})
+			
+			$("#edui1").delegate("#edui1_imagescale","mouseout",function(){
+				console.log(this);
+				$("#img-point-p").hide();
+				
+			})
+			//绑定打点事件
+			$("#img-point-p").on("click",function(){
+				$(".img-input").show();
+			})
+			
+			}
+			
+          window.onload=function(){
+				iframeinit();
+			}
+			*/
+           
+			
+			
+			 function isFocus(e){
+                alert(UE.getEditor('editor2').isFocus());
+                UE.dom.domUtils.preventDefault(e)
+            }
+            function setblur(e){
+                UE.getEditor('editor2').blur();
+                UE.dom.domUtils.preventDefault(e)
+            }
+            
+            function insertHtml(){
+                var value = prompt('插入html代码', '');
+                UE.getEditor('editor2').execCommand('insertHtml', value)
+            }
+            
+            function createEditor(){
+                enableBtn();
+                UE.getEditor('editor2');
+            }
+            
+            function getAllHtml(){
+                alert(UE.getEditor('editor2').getAllHtml())
+            }
+            
+            function getContent(){
+                var arr = [];
+                arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+                arr.push("内容为：");
+                arr.push(UE.getEditor('editor2').getContent());
+                alert(arr.join("\n"));
+            }
+            
+            function getPlainTxt(){
+                var arr = [];
+                arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+                arr.push("内容为：");
+                arr.push(UE.getEditor('editor2').getPlainTxt());
+                alert(arr.join('\n'))
+            }
+            
+            function setContent(isAppendTo){
+                var arr = [];
+                arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+                UE.getEditor('editor2').setContent('欢迎使用ueditor', isAppendTo);
+                alert(arr.join("\n"));
+            }
+            
+            function setDisabled(){
+                UE.getEditor('editor2').setDisabled('fullscreen');
+                disableBtn("enable");
+            }
+            
+            function setEnabled(){
+                UE.getEditor('editor2').setEnabled();
+                enableBtn();
+            }
+            
+            function getText(){
+                //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+                var range = UE.getEditor('editor2').selection.getRange();
+                range.select();
+                var txt = UE.getEditor('editor2').selection.getText();
+                alert(txt)
+            }
+            
+            function getContentTxt(){
+                var arr = [];
+                arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+                arr.push("编辑器的纯文本内容为：");
+                arr.push(UE.getEditor('editor2').getContentTxt());
+                alert(arr.join("\n"));
+            }
+            
+            function hasContent(){
+                var arr = [];
+                arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+                arr.push("判断结果为：");
+                arr.push(UE.getEditor('editor2').hasContents());
+                alert(arr.join("\n"));
+            }
+            
+            function setFocus(){
+                UE.getEditor('editor2').focus();
+            }
+            
+            function deleteEditor(){
+                disableBtn();
+                UE.getEditor('editor2').destroy();
+            }
+            
+            function disableBtn(str){
+                var div = document.getElementById('btns');
+                var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+                for (var i = 0, btn; btn = btns[i++];) {
+                    if (btn.id == str) {
+                        UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+                    }
+                    else {
+                        btn.setAttribute("disabled", "true");
+                    }
+                }
+            }
+            
+            function enableBtn(){
+                var div = document.getElementById('btns');
+                var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+                for (var i = 0, btn; btn = btns[i++];) {
+                    UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+                }
+            }
+            
+            function getLocalData(){
+                alert(UE.getEditor('editor2').execCommand("getlocaldata"));
+            }
+            
+            function clearLocalData(){
+                UE.getEditor('editor2').execCommand("clearlocaldata");
+                alert("已清空草稿箱")
+            }
+        </script>
+    </body>
+</html>

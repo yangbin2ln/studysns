@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-body>
+    <html>
+        
+        <head>
+        </head>
+        <body>
+            <div id="main" style='font-size:20px;text-align:center'>
+                <div style='margin:20px'>
+                    <a href='http://www.3esns.com/student/home/{0}'>
+                        {1}
+                    </a>
+                    为您分配了
+                    <a href='http://www.3esns.com'>
+                        T-Show
+                    </a>
+                    的企业账户
+                    <div>
+                        邀请码：
+                        <span style='color:red'>
+                            {2}
+                        </span>
+                    </div>
+                    
+                </div>
+                <div style='font-size:14px'>
+                    点此激活邮箱http://www.3esns.com/user/activated?key={3}
+                </div>
+                <div>
+                    <a href='http://www.3esns.com'>
+                        T-Show
+                    </a>
+                    欢迎您的加入
+                </div>
+            </div>
+        </body>
+    </html>
+</xml-body>

@@ -1,0 +1,154 @@
+/*内容导航*/
+.Personal-Center {
+	padding-top: 100px;
+}
+
+.Personal-Center-nav {
+	z-index: 4;
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	background: #F5F8FA;
+	text-align: center;
+	position: fixed;
+	top: 60px;
+	box-shadow: 2px 2px 2px #E6DDE6;
+}
+
+.Personal-Center-nav ul li {
+	display: inline-block;
+	padding: 0px 10px;
+}
+
+.active-bot {
+	border-bottom: 4px solid #3B94D9;
+}
+
+.Personal-Center-nav ul .center-data-type:hover {
+	border-bottom: 4px solid #3B94D9;
+}
+
+.Personal-Center-nav ul .center-data-type a {
+	color: #7A94FD;
+	font-weight: bold;
+	cursor:pointer;
+}
+/*动态显示*/
+.Personal-Center-c {
+	width: 588px;
+	margin: 20px auto;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #E1E8ED;
+}
+
+.pc-user {
+	border-bottom: 1px solid #E1E8ED;
+	padding: 12px;
+	cursor: auto;
+}
+
+.pc-user:hover {
+	background: #F5F8FA;
+}
+
+.pc-user-pic {
+	cursor: pointer;
+	float: left;
+}
+
+.pc-user-pic img {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+}
+
+.pc-user-mes {
+	padding-left: 70px;
+}
+
+.pc-user-mes-un {
+	font-size: 15px;
+	color: #444;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.pc-user-mes-un a {
+	color: #444;
+}
+
+.pc-user-mes-un a:hover {
+	color: #7A94FD;
+}
+
+.pc-user-mes-un .sx {
+	float: right;
+	color: #D91A40;
+}
+
+.pc-user-mes-zp {
+	color: #8D7B80;
+	font-weight: bold;
+}
+
+.pc-user-mes-pic {
+	position: relative;
+	display: -webkit-inline-box;
+	margin: 10px 0px;
+}
+
+.pc-user-mes-pic img {
+	max-width: 100%;
+	border-radius: 5px;
+	cursor: -webkit-zoom-in;
+}
+
+.pc-user-mes-xlabel ul li {
+	display: inline-block;
+	color: #fff;
+	background: #02CC7D;
+	padding: 5px;
+	border-radius: 3px;
+	margin-right: 5px;
+    cursor: pointer;
+}
+.pc-user-mes-xlabel ul li:hover{
+	background:#28FBA8;
+}
+.pc-user-mes-e {
+	margin: 10px 0px;
+	font-size: 15px;
+	line-height: 20px;
+	color: #444;
+}
+
+.pc-user-mes-p ul li {
+	display: inline-block;
+	margin-right: 10px;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.pc-user-mes-p ul li a {
+	color: #7A94FD;
+	font-weight: bold;
+}
+
+.pc-user-mes-p ul li a:hover {
+	color: #E02828;
+}
+
+.sxfw {
+	width: 170px;
+	position: absolute;
+	left: 28%;
+}
+
+.collect {
+	cursor: pointer;
+}
+
+.pc-praise {
+	cursor: pointer;
+}

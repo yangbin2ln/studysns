@@ -1,0 +1,789 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+li {
+	list-style-type: none;
+}
+
+body {
+	background: #e9e9e9;
+}
+
+.ts-main-content-inner {
+	width: 990px;
+	height: 500px;
+	margin: 100px auto;
+}
+
+.ts-main-content-inner .left {
+	-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	border-radius: 6px;
+	position: fixed;
+	width: 236px;
+	background: #ffffff;
+}
+
+.ts-main-content-inner .left ul li {
+	line-height: 43px;
+	padding: 0px 0px 0px 15px;
+	height: 43px;
+	border-bottom: 1px solid #dfdfdf;
+	cursor: pointer;
+	min-height: 18px;
+}
+
+.ts-main-content-inner .left ul li:hover {
+	background: #F0F0F0;
+}
+
+.ts-main-content-inner .left ul li a {
+	display: block;
+	font-size: 15px;
+	font-weight: normal;
+	color: #999;
+}
+
+.ts-main-content-inner .left-1 {
+	border-radius: 6px 6px 0px 0px;
+}
+
+.ts-main-content-inner .right {
+	width: 735px;
+	float: right;
+}
+/*基本信息*/
+.Basicdata {
+	width: 735px;
+	border-radius: 6px;
+	background: #ffffff;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+.Mark {
+	font-size: 15px;
+	color: #ab171e;
+}
+
+.Basicdata-h {
+	padding: 15px 21px 15px 27px;
+	position: relative;
+}
+
+.close-2 {
+	position: absolute;
+	right: 15px;
+	top: 21px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #AAAAAA;
+	cursor: pointer;
+}
+
+.Basicdata ul li {
+	border-top: 1px solid #dfdfdf;
+	padding: 15px 21px 15px 27px;
+}
+
+.Basicdata ul li h3 {
+	width: 130px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #555;
+	float: left;
+	font-weight: bold;
+	padding: 4px 10px 0 0;
+}
+
+.username,.userjb {
+	width: 300px;
+	background-color: #f3f3f3;
+	border-radius: 3px;
+	border: 1px solid #d6d3ce;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.12) inset;
+	color: #333;
+	font-size: 14px;
+	padding: 7px;
+}
+
+#selectJob {
+	width: 316px;
+	background-color: #f3f3f3;
+	border-radius: 3px;
+	border: 1px solid #d6d3ce;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.12) inset;
+	color: #333;
+	font-size: 14px;
+	padding: 7px;
+}
+
+.userschool-year {
+	width: 316px;
+	background-color: #f3f3f3;
+	border-radius: 3px;
+	border: 1px solid #d6d3ce;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.12) inset;
+	color: #333;
+	font-size: 14px;
+	padding: 7px;
+}
+
+#selectJob option {
+	width: 300px;
+	background-color: #f3f3f3;
+	border-radius: 3px;
+	border: 1px solid #d6d3ce;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.12) inset;
+	color: #333;
+	font-size: 14px;
+	padding: 7px;
+}
+
+.Basicdata-uerpic {
+	position: relative;
+	overflow: hidden;
+	border-radius: 50%;
+	display: inline-block;
+	height: 75px;
+	margin-right: 10px;
+	vertical-align: middle;
+	width: 75px;
+}
+
+.Basicdata-uerpic img {
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+}
+
+.Basicdata-uerpic canvas {
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+}
+
+.Basicdata-uerpic-fix {
+	background: linear-gradient(#fff, #f0f0f0);
+	border: 1px solid #ccc;
+	color: #5f5f5f;
+	cursor: pointer;
+	font-weight: bold;
+	text-shadow: 0 1px #fff;
+	white-space: nowrap;
+	background-color: #f0f0f0;
+	padding: 7px 13px;
+	border-radius: 3px;
+}
+
+.userabout {
+	height: 85px;
+	line-height: 20px;
+	resize: vertical;
+	box-sizing: border-box;
+	width: 545px;
+	border-radius: 3px;
+	border: 1px solid #d6d3ce;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.12) inset;
+	color: #333;
+	font-size: 14px;
+	padding: 7px;
+}
+
+.submit-2 {
+	background: #E02828;
+	padding: 10px 15px;
+	font-size: 13px;
+	color: #ffffff;
+	font-weight: bold;
+	border-radius: 3px;
+	border: none;
+	float: right;
+	cursor: pointer;
+}
+
+.cancle {
+	background: #767368;
+	padding: 10px 15px;
+	font-size: 13px;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 3px;
+	margin-right: 10px;
+	border: none;
+	float: right;
+	cursor: pointer;
+}
+
+.school-list,.profe-list {
+	z-index: 1;
+	background-color: #f3f3f3;
+	border-radius: 3px;
+	border: 1px solid #d6d3ce;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.12) inset;
+	color: #333;
+	font-size: 14px;
+	width: 314px;
+	position: absolute;
+	left: 140px;
+}
+
+.school-list>div>div,.profe-list>div>div {
+	cursor: pointer;
+	padding: 5px 7px;
+}
+
+.school-list>div>div:hover,.profe-list>div>div:hover {
+	background: white;
+}
+/*账户和密码*/
+.userAccount,.Companyaccount {
+	width: 735px;
+	margin-top: 30px;
+	border-radius: 6px;
+	background: #ffffff;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+.userAccount-h,.Companyaccount-h {
+	padding: 15px 21px 15px 27px;
+	position: relative;
+}
+
+.userAccount ul li,.Companyaccount-f {
+	overflow: hidden;
+	border-top: 1px solid #dfdfdf;
+	padding: 15px 21px 15px 27px;
+}
+
+.userAccount ul li h3 {
+	width: 130px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #555;
+	float: left;
+	font-weight: bold;
+	padding: 4px 10px 0 0;
+}
+
+.userAccount .buttontext {
+	line-height: 30px;
+	font-size: 15px;
+	color: #E02828;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.xgmm {
+	display: none;
+	margin: 10px 0px;
+}
+
+.pwd-error {
+	padding-left: 8px;
+	color: red;
+	font-size: 14px;
+}
+/*公司账号设置*/
+.Companyaccount {
+	
+}
+
+.Companyaccount-f h3 {
+	width: 130px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #555;
+	float: left;
+	font-weight: bold;
+	padding: 4px 10px 0 0;
+}
+
+.Companyaccount-f button {
+	background: #000000;
+	padding: 7px;
+	font-size: 13px;
+	color: #ffffff;
+	font-weight: bold;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+}
+
+.Companyaccount-c h3,.Companyaccount-c-n,.Companyaccount-c-l {
+	padding: 15px 21px 15px 27px;
+	position: relative;
+	border-top: 1px solid #dfdfdf;
+}
+
+.Companyaccount-c-n ul li {
+	display: inline-block;
+	width: 130px;
+	font-size: 17px;
+	font-weight: bold;
+	color: #5B5B5B;
+}
+
+.Companyaccount-c-l-1 {
+	margin-bottom: 20px;
+}
+
+.Companyaccount-c-l-2  li {
+	display: inline-block;
+	width: 130px;
+	font-size: 17px;
+	font-weight: bold;
+	color: #5B5B5B;
+}
+/*范围选择*/
+.box4-h3-area>span {
+	display: inline-block;
+	cursor: pointer;
+	height: 30px;
+	margin-right: 20px;
+	line-height: 30px;
+}
+
+.box4-yxz {
+	margin-bottom: 15px;
+	margin-left: 30px;
+	line-height: 30px;
+}
+
+.box4-yxz>span {
+	padding: 0px 6px;
+	color: white;
+	border-radius: 5px;
+	height: 25px;
+	line-height: 25px;
+	margin: 0px 6px;
+	background: green;
+	display: inline-block;
+	font-size: 13px;
+}
+
+.box4-yxz>span>span {
+	cursor: pointer;
+	border-radius: 5px;
+	border-left: 1px solid #AD9797;
+	padding: 0px 0px 0px 6px;
+	background: green;
+	display: inline-block;
+	margin-left: 6px;
+}
+
+.box4-h3-area>span:hover {
+	    color: white;
+    background: #9E9D9D;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.box4-h3-area-s-col {
+	color: white;
+    background: #9E9D9D;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.Companyaccount-authority,.Course-setting,.invent-friend {
+	width: 735px;
+	margin-top: 30px;
+	border-radius: 6px;
+	background: #ffffff;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+.Companyaccount-authority-h,.Course-setting-h,.invent-friend-h {
+	padding: 15px 21px 15px 27px;
+	position: relative;
+}
+
+.Course-setting-h>h3 {
+	line-height: 30px;
+	height: 30px;
+	cursor: pointer;
+	float: left;
+	margin-right: 20px;
+}
+
+.ta1 {
+	font-size: 13px;
+	BORDER-COLLAPSE: collapse;
+	width: 730px;
+	margin: 20px auto;
+	text-align: center;
+	table-layout: fixed;
+}
+
+.Course-setting-h>h3:hover {
+	    color: white;
+    background: #9E9D9D;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.Course-setting-h-col {
+	    color: white;
+    background: #9E9D9D;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.Course-setting-li table td {
+	border: 1px solid #CCB4B4;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 2px;
+	height: 50px;
+}
+
+.course-info-up {
+	resize: none;
+	text-align: center;
+	line-height: 15px;
+	height: 15px;
+	overflow: hidden;
+	border: none;
+	width: 100%;
+}
+
+.course-info-up:focus {
+	padding: 10px 5px;
+	background: #f3f3f3;
+	overflow: auto;
+	width: 450px;
+	max-width: 600px;
+	word-break: break-all;
+	word-wrap: break-word;
+	height: 100px;
+	max-height: 300px;
+	position: absolute;
+	text-align: left;
+	border: 1px solid black;
+	word-break: break-all;
+}
+
+td {
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+.Course-setting-li table .td1 {
+	width: 15px;
+}
+
+.Course-setting-li table .td2 {
+	width: 40px;
+}
+
+.Course-setting-li table .td3 {
+	width: 40px;
+}
+
+.Course-setting-li table .td4 {
+	width: 80px;
+}
+
+.Course-setting-li table .td5 {
+	width: 38px;
+}
+
+.Course-setting-li table .td6 {
+	width: 30px;
+}
+
+.Course-setting-li table .td7 {
+	width: 75px;
+}
+
+.Course-setting-li table .td8 {
+	width: 35px;
+}
+
+.course-up,.course-de {
+	background: grey;
+	padding: 1px;
+	color: white;
+}
+
+.Companyaccount-authority ul li,.invent-friend-t {
+	overflow: hidden;
+	border-top: 1px solid #dfdfdf;
+	padding: 15px 21px 15px 27px;
+	position: relative;
+}
+
+.Companyaccount-authority ul li .right {
+	line-height: 30px;
+	height: 30px;
+	float: right;
+	width: 60px;
+}
+
+.Companyaccount-authority ul li .right label {
+	display: block;
+	cursor: pointer;
+}
+/*课程设置*/
+.Course-setting ul li {
+	overflow: hidden;
+	border-top: 1px solid #dfdfdf;
+	padding: 15px 21px 15px 27px;
+	position: relative;
+}
+
+.Course-setting ul li h3 {
+	width: 55px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #555;
+	float: left;
+	font-weight: bold;
+	padding: 4px 10px 0 0;
+}
+
+.Course-setting ul li .coursetext {
+	height: 100px;
+	line-height: 20px;
+	resize: vertical;
+	box-sizing: border-box;
+	width: 550px;
+	border-radius: 3px;
+	border: 1px solid #d6d3ce;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.12) inset;
+	color: #333;
+	font-size: 14px;
+	padding: 7px;
+}
+
+.Course-setting ul li .number {
+	width: 50px;
+	height: 30px;
+	float: right;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #000;
+	border: none;
+	color: #fff;
+	outline: none;
+}
+/*邀请好友*/
+.invent-friend-t button {
+	background: #000000;
+	padding: 7px;
+	font-size: 13px;
+	color: #ffffff;
+	font-weight: bold;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+}
+/*公司账户详情*/
+.ts-main-content-Companyaccount-f,.ts-main-content-password-fix {
+	border: 1px solid #D6BDBD;
+	overflow: auto;
+	height: 530px;
+	top: 30px;
+	z-index: 2;
+	width: 580px;
+	background: #ffffff;
+	margin-left: -165px;
+	border-radius: 6px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	position: fixed;
+	left: 50%;
+}
+
+.ts-main-content-Companyaccount-f-h,.ts-main-content-password-fix-h {
+	padding: 15px 21px 15px 27px;
+	position: relative;
+}
+
+.ts-main-content-Companyaccount-f ul li,.ts-main-content-password-fix ul li
+	{
+	overflow: hidden;
+	border-top: 1px solid #dfdfdf;
+	padding: 15px 21px 15px 27px;
+}
+
+.ts-main-content-Companyaccount-f ul li h3,.ts-main-content-password-fix ul li h3
+	{
+	width: 130px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #555;
+	float: left;
+	font-weight: bold;
+	padding: 4px 10px 0 0;
+}
+
+.ts-main-content-Companyaccount-f ul li .name,.ts-main-content-password-fix ul li .password
+	{
+	width: 300px;
+	background-color: #f3f3f3;
+	border-radius: 3px;
+	border: 1px solid #d6d3ce;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.12) inset;
+	color: #333;
+	font-size: 14px;
+	padding: 7px;
+}
+
+.ts-main-content-Companyaccount-f ul li .school {
+	margin-bottom: 10px;
+}
+
+.ts-main-content-Companyaccount-f ul li .school-t {
+	margin-left: 140px;
+}
+
+.accountFrozen {
+	background: #767368;
+	padding: 10px 15px;
+	font-size: 13px;
+	color: #ffffff;
+	font-weight: bold;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+}
+/*修改密码*/
+.ts-main-content-password-fix {
+	
+}
+
+.xgmm>div {
+	margin: 10px 0px;
+}
+
+#tpcj {
+	z-index: 2;
+	position: fixed;
+	top: 26%;
+	left: 50%;
+	margin-left: -38px;
+	display: none;
+	border: 1px solid #E2D3D3;
+}
+
+#tpcj .tpcj-f {
+	position: relative;
+	background-color: #C5C5C5;
+	padding: 10px;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+
+#tpcj .tpcj-img {
+	margin: 22px auto;
+	position: relative;
+	overflow: hidden;
+	width: 160px;
+	height: 160px;
+}
+
+#tpcj .tpcj-img img {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	max-width: 1500px;
+	max-height: 1500px;
+	min-width: 250px;
+	min-height: 250px;
+}
+
+#tpcj .tpcj-zzc {
+	cursor: all-scroll;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 301;
+	opacity: 0;
+}
+
+#tpcj .submit-2 {
+	font-size: 14px;
+	border: 0px;
+	background-color: blue;
+	height: 35px;
+	width: 70px;
+	color: white;
+	border-radius: 3px;
+}
+
+#tpcj .quit {
+	font-size: 14px;
+	border: 0px;
+	background-color: white;
+	height: 35px;
+	width: 70px;
+	color: blue;
+	border-radius: 3px;
+}
+
+#tpcj .but-p {
+	padding: 10px;
+	background-color: white;
+	text-align: center;
+	font-size: 23px;
+}
+
+.pageNo {
+	text-align: center;
+	font-size: 14px;
+	line-height: 28px;
+	background-color: rgba(230, 200, 200, 0.65);
+	height: 28px;
+	display: inline-block;
+	width: 28px;
+	border: 1px solid black;
+	cursor: pointer;
+	margin: 0px 1px;
+}
+
+.pageNo:hover {
+	background-color: rgba(165, 73, 73, 0.65);
+}
+
+.pagesx:hover {
+	background-color: rgba(165, 73, 73, 0.65);
+}
+
+.pagedi>span {
+	margin: 0px 3px;
+}
+
+.pagesx {
+	line-height: 30px;
+	display: inline-block;
+	cursor: pointer;
+	height: 30px;
+}
+
+.course-info-up-in {
+	text-align: center;
+	width: 50px;
+	border: none;
+}
+
+thead {
+	width: 130px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #5B5B5B;
+}
+
+.account-info-ope {
+	color: red;
+	cursor: pointer;
+}
